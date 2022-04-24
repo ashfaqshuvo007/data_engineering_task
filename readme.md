@@ -8,7 +8,8 @@
 - [Usage](#usage)
 - [Testing](#testing)
 - [Contributing](#contributing)
-- [Liscence](#liscence)
+- [Author](#author)
+- [License](#license)
 
 
 ## Introduction
@@ -135,7 +136,7 @@ This means your flask app is running successfully. Go to ```http://127.0.0.1:500
 ![All Data](demo_images/data_collapsed.png)
 
     3. Data on a specific page number. Go to ```http://127.0.0.1:5000/show_data/<page>```
-    
+
 ![All Data](demo_images/data_flexed.png)
 
     4. New Data pulled using API. Go to ```http://127.0.0.1:5000/load_data```
@@ -154,8 +155,12 @@ python -m pytest
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
 Please make sure to update tests as appropriate.
+
+## Author
+
+**Ashfaq Hussain Ahmed**
+- [LinkedIn](https://www.linkedin.com/in/ashfaqhahmed/)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
