@@ -7,6 +7,7 @@ and all we need to deliver is a simple web API which serves static content recei
 classic ETL (extract-transform-load) pipeline.
 
 # Subtasks
+
     1. Pick your favorite data source and fetch data from it.
         Ideas: scrape subreddit (e.g. https://www.reddit.com/r/Bunnies/) or real estate portal (e.g.
         Estonian https://www.kv.ee/), query existing web APIs (e.g. from
@@ -23,9 +24,11 @@ classic ETL (extract-transform-load) pipeline.
         Ideas: Swagger, Openapi, flask, django, falcon, 
 
 ## What will be assessed?
+
 The overall solution and how it is done. There are innumerous things that make up a good
 solution, some of which are listed below. Wow effect can be made with even the smallest efforts
 and not everything needs to be there.
+
     1. Overall code quality, structure, readability, and maintainability (including conformance
     with pep8 through IDE, pylint; bandit for security? )
     2. Code readability and maintainability (e.g docstrings, decoupling, variable naming)
