@@ -1,7 +1,8 @@
+"""Import Necessary modules"""
 from datetime import datetime as dt
 from math import floor
 
-#TODO: create DB table
+# create DB table
 def create_db_table(connection) -> None:
     cursor = connection.cursor()
     cursor.execute("""
@@ -22,17 +23,17 @@ def create_db_table(connection) -> None:
         );
     """)
 
-#TODO: Insert data into table
+# Insert data into table
 def insert_data(connection, data) -> None:
     create_db_table(connection)
-    timestampStr = dt.now().strftime("%d-%b-%Y (%H:%M:%S.%f)")
+    timestamp_str = dt.now().strftime("%d-%b-%Y (%H:%M:%S.%f)")
     all_data = [{
         **d,
         'quote_usd_reported_24h': d['quotes']['USD']['reported_volume_24h'],
         'quote_usd_adjusted_24h': d['quotes']['USD']['adjusted_volume_24h'],
         'quote_usd_reported_7d': d['quotes']['USD']['reported_volume_7d'],
         'quote_usd_adjusted_7d': d['quotes']['USD']['adjusted_volume_7d'],
-        'last_updated': timestampStr
+        'last_updated': timestamp_str
     } for d in data]
 
     cursor = connection.cursor()
@@ -53,20 +54,24 @@ def insert_data(connection, data) -> None:
         );
     """, all_data)
 
-#TODO: Get Rows from DB
+# Get Rows from DB
 def get_data(page,connection) -> dict:
 
-    #TODO: Total Data
+    # Total Data
     cur = connection.cursor()
     cur.execute('SELECT COUNT(*) from etl_crypto_data')
     results = cur.fetchone()
-    for r in results:
-        total_count = r
-    if (page==1):
-        cur.execute('SELECT * from etl_crypto_data ORDER BY id ASC LIMIT {limit} offset {offset}'.format(limit = 25, offset = 0))
+    for r_data in results:
+        total_count = r_data
+    if page==1:
+        cur.execute('SELECT * from etl_crypto_data ORDER BY id'
+                    + 'ASC LIMIT {limit} offset {offset}'
+                        .format(limit = 25, offset = 0))
         data = cur.fetchall()
     else:
-        cur.execute('SELECT * from etl_crypto_data ORDER BY id ASC LIMIT {limit} offset {offset}'.format(limit = 25, offset = (5 * int(page))))
+        cur.execute('SELECT * from etl_crypto_data ORDER BY id'
+                    + 'ASC LIMIT {limit} offset {offset}'
+                    .format(limit = 25, offset = (5 * int(page))))
         data = cur.fetchall()
 
 
