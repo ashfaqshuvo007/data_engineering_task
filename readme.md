@@ -127,13 +127,20 @@ You'll see the following in the terminal:
 This means your flask app is running successfully. Go to ```http://127.0.0.1:5000``` on a browser and you'll see:
 - Results 
     1.  Index Route: 
-![Index Page](demo_images\index.png)
+
+![Index Page](demo_images/index.png)
+
     2. All Data with Pagination. Go to ```http://127.0.0.1:5000/show_data```
-![All Data](demo_images\data_collapsed.png)
+
+![All Data](demo_images/data_collapsed.png)
+
     3. Data on a specific page number. Go to ```http://127.0.0.1:5000/show_data/<page>```
-![All Data](demo_images\data_flexed.png)
-    3. New Data pulled using API. Go to ```http://127.0.0.1:5000/load_data```
-![New Data pulled](demo_images\new_data_pulled.png)
+    
+![All Data](demo_images/data_flexed.png)
+
+    4. New Data pulled using API. Go to ```http://127.0.0.1:5000/load_data```
+
+![New Data pulled](demo_images/new_data_pulled.png)
 
 ## Testing
 I am using **pytest** to test this application. To make changes to any configuration, use the ```pytest.ini``` file.
@@ -143,7 +150,7 @@ It is to use the functional testing of the rest api endpoints. To test the enpoi
 python -m pytest
 ``` 
 - A successful run of **tests** should yield:
-![Test Success](demo_images\test_success.PNG)
+![Test Success](demo_images/test_success.PNG)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
