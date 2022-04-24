@@ -20,7 +20,7 @@ def index():
         'status': 200,
         'message': 'App is Live!'
     }
-    return jsonify(response_dict)
+    return jsonify({"results": response_dict})
 
 
 
@@ -40,7 +40,7 @@ def show_data(page):
                 'status': 404,
                 'error': error
         }
-    return jsonify(response_dict)
+    return jsonify({"results": response_dict})
 
 
 
@@ -48,14 +48,14 @@ def show_data(page):
 @app.route('/load_data')
 def load_data():
     import_data()
-    logging.info("New data Loaded")
+    logging.info("New data pulled from api")
     timestamp_str = dt.now().strftime("%d-%b-%Y (%H:%M:%S.%f)")
     response_string = f'New data pulled at {timestamp_str}'
     response_dict = {
                 'status': 200,
                 'message': response_string
         }
-    return jsonify(response_dict)
+    return jsonify({"results": response_dict})
 
 
 

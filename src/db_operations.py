@@ -56,7 +56,6 @@ def insert_data(connection, data) -> None:
 
 # Get Rows from DB
 def get_data(page,connection) -> dict:
-
     # Total Data
     cur = connection.cursor()
     cur.execute('SELECT COUNT(*) from etl_crypto_data')
@@ -64,12 +63,12 @@ def get_data(page,connection) -> dict:
     for r_data in results:
         total_count = r_data
     if page==1:
-        cur.execute('SELECT * from etl_crypto_data ORDER BY id'
+        cur.execute('SELECT * from etl_crypto_data ORDER BY id '
                     + 'ASC LIMIT {limit} offset {offset}'
                         .format(limit = 25, offset = 0))
         data = cur.fetchall()
     else:
-        cur.execute('SELECT * from etl_crypto_data ORDER BY id'
+        cur.execute('SELECT * from etl_crypto_data ORDER BY id '
                     + 'ASC LIMIT {limit} offset {offset}'
                     .format(limit = 25, offset = (5 * int(page))))
         data = cur.fetchall()
